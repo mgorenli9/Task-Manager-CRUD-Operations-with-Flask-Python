@@ -1,0 +1,84 @@
+{% extends 'base.html' %} 
+
+{% block head %} 
+<title>Task Manager</title>
+<style>
+
+.card-header{
+      background-color: #5DADE2  ;
+}
+.card-body{
+      background-color: #AED6F1;
+}
+
+table,
+th,
+td {
+        border: 1px solid #85C1E9;
+        border-collapse: collapse;
+        
+}
+     
+th,
+td {
+        padding: 10px;
+}
+a{
+        color: #D6EAF8;
+}
+.table-title{
+    background-color: #2E86C1;
+    color: #D6EAF8;
+    font-size: 18px;
+}
+.table2{
+    color: #D6EAF8;
+}
+.footer{
+    color: #D6EAF8;
+}
+    </style>
+{% endblock %}
+
+{% block body %} 
+
+<div class="container-fluid" style="text-align: center;">
+    
+    <h1 > Task Manager </h1> <br>
+    <form action="/" method="post">
+        <input type="text" class="textfield" name="content" id="content" placeholder="Enter a Task...">
+        <input class="btn-color" type="submit" value="Add Task">
+    </form><br>
+    <table class="table2" style="margin: 0px auto;">
+        <tr class="table-title">
+            <th>Task</th>
+            <th>Added</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{task.content}}</td>
+                <td>{{task.date.date()}}</td>
+                <td>
+                    <a href="/update/{{task.id}}">Update</a>
+                    <br>
+                    <a href="/delete/{{task.id}}" >Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<!-- Footer begins-->
+<div class="container-fluid footer">
+    <div class="col-md-12  d-flex flex-column justify-content-center align-items-center">
+        <div class="footer-text" style="text-align: center;">
+            
+            <p>Powered by Mehmet</p>
+          <p>©Copyright 2023 Tüm Hakları Saklıdır.</p>
+        </div> 
+    </div>
+</div> 
+
+
+{% endblock %}

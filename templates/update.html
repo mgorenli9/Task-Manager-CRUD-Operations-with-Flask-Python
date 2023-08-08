@@ -1,0 +1,35 @@
+{% extends 'base.html' %} 
+
+{% block head %} 
+<title>Task Manager</title>
+<style>
+a{
+    display: inline-block;
+}
+</style>
+{% endblock %}
+
+{% block body %} 
+
+<div class="container" style="text-align: center;" ></div>
+
+    <h1 style="text-align: center;">Update Manager</h1><br>
+    <form action="/update/{{task.id}}" method="POST" style="text-align: center;">
+        <input type="text" class="textfield" name="content" id="content" value="{{task.content}}">
+        <input type="submit" class="btn-color" value="Update">
+        <a href="/" class="btn-color" style="text-decoration:none" >Cancel</a>
+    </form>
+</div>
+
+<!-- Footer begins-->
+<div class="container-fluid footer">
+    <div class="col-md-12  d-flex flex-column justify-content-center align-items-center">
+        <div class="footer-text" style="text-align: center;">
+            <br><br><br><br>
+            <p>Powered by Mehmet</p>
+          <p>©Copyright 2023 Tüm Hakları Saklıdır.</p>
+        </div> 
+    </div>
+</div> 
+
+{% endblock %}
